@@ -32,7 +32,7 @@ function love.resize(w, h)
 end
 
 function love.keypressed(key)
-    if key == 'escape' then
+    if key == KEYS.QUIT then
         love.event.quit()
     end
 end
@@ -43,4 +43,8 @@ function love.draw()
     Header:draw(0)
     player:draw()
     push:apply('end')
+end
+
+function love.update(dt)
+    player:update(dt)
 end

@@ -55,3 +55,9 @@ PLAYER = {
     WIDTH = PLAYER_SIDE,
     HEIGHT = PLAYER_SIDE,
 }
+
+KEYS = {
+    RIGHT = 'd',
+    LEFT = 'a',
+    QUIT = 'escape',
+}
