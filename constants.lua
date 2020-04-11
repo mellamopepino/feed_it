@@ -65,12 +65,13 @@ FOOD = {
     INIT_DY = 100,
     WIDTH = FOOD_SIDE,
     HEIGHT = FOOD_SIDE,
+    LEVEL = 10
 }
 
 -- Food Spawner
 
 FOOD_SPAWNER = {
-    INIT_RATE = 4,
+    INIT_RATE = 2,
     RATE_DECREASE = 0.90,
 }
 
@@ -80,4 +81,27 @@ KEYS = {
     RIGHT = 'd',
     LEFT = 'a',
     QUIT = 'escape',
+}
+
+-- Empechado level
+
+BOX_PADDING = 2
+BOX_WIDTH = 60
+BOX_HEIGHT = 8
+
+EMPACHADO = {
+    CONTAINER_BOX = {
+        X = H_PADDING,
+        Y = HEADER_TEXT_Y,
+        WIDTH = BOX_WIDTH,
+        HEIGHT = BOX_HEIGHT,
+    },
+    LEVEL_BOX = {
+        X = H_PADDING + BOX_PADDING/2,
+        Y = HEADER_TEXT_Y + BOX_PADDING/2,
+        WIDTH = BOX_WIDTH - BOX_PADDING,
+        HEIGHT = BOX_HEIGHT - BOX_PADDING,
+    },
+    INIT_LEVEL = 0,
+    MAX_LEVEL = 100,
 }

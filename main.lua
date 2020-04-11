@@ -13,6 +13,7 @@ require 'Header'
 require 'Player'
 require 'FoodSpawner'
 require 'Score'
+require 'Empachado'
 
 function love.load()
     love.window.setTitle(TITLE.TEXT)
@@ -31,6 +32,7 @@ function love.load()
     player = Player()
     foods = FoodSpawner()
     score = Score()
+    empachado = Empachado()
 end
 
 function love.resize(w, h)
@@ -49,6 +51,7 @@ function love.draw()
     Header:draw(score:getScore())
     player:draw()
     foods:draw()
+    empachado:draw()
 
     push:apply('end')
 end
