@@ -7,11 +7,12 @@
 ]]
 
 push = require 'push'
-class = require 'class'
+Class = require 'class'
 require 'constants'
+require 'Header'
 
 function love.load()
-    love.window.setTitle(TITLE)
+    love.window.setTitle(TITLE.TEXT)
 
     love.graphics.setDefaultFilter('nearest', 'nearest')
     love.graphics.setFont(SMALL_FONT)
@@ -36,7 +37,6 @@ end
 function love.draw()
     push:apply('start')
 
-    love.graphics.printf(TITLE, 0, 20, VIRTUAL_WIDTH, 'center')
-
+    Header:draw(0)
     push:apply('end')
 end
