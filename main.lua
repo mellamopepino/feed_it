@@ -10,6 +10,7 @@ push = require 'push'
 Class = require 'class'
 require 'constants'
 require 'Header'
+require 'Player'
 
 function love.load()
     love.window.setTitle(TITLE.TEXT)
@@ -22,6 +23,8 @@ function love.load()
         resizable = false,
         vsync = true
     })
+
+    player = Player()
 end
 
 function love.resize(w, h)
@@ -38,5 +41,6 @@ function love.draw()
     push:apply('start')
 
     Header:draw(0)
+    player:draw()
     push:apply('end')
 end
