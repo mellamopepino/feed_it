@@ -7,29 +7,36 @@
 ]]
 
 push = require 'push'
-
-WINDOW_WIDTH = 1280
-WINDOW_HEIGHT = 720
-
-VIRTUAL_WIDTH = 432
-VIRTUAL_HEIGHT = 243
+class = require 'class'
+require 'constants'
 
 function love.load()
+    love.window.setTitle(TITLE)
+
     love.graphics.setDefaultFilter('nearest', 'nearest')
-    smallFont = love.graphics.newFont('font.ttf', 8)
-    love.graphics.setFont(smallFont)
+    love.graphics.setFont(SMALL_FONT)
 
     push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
-        fullscreen = false,
+        fullscreen = true,
         resizable = false,
         vsync = true
     })
 end
 
+function love.resize(w, h)
+    push:resize(w, h)
+end
+
+function love.keypressed(key)
+    if key == 'escape' then
+        love.event.quit()
+    end
+end
+
 function love.draw()
     push:apply('start')
 
-    love.graphics.printf('Hello Feed It!', 0, 20, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf(TITLE, 0, 20, VIRTUAL_WIDTH, 'center')
 
     push:apply('end')
 end
