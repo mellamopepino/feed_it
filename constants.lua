@@ -61,11 +61,17 @@ PLAYER = {
 FOOD_SIDE = 4
 
 FOOD = {
-    INIT_X = love.math.random(H_PADDING, VIRTUAL_WIDTH - H_PADDING),
     INIT_Y = GAME_CONTAINER_TOP,
     INIT_DY = 100,
     WIDTH = FOOD_SIDE,
     HEIGHT = FOOD_SIDE,
+}
+
+-- Food Spawner
+
+FOOD_SPAWNER = {
+    INIT_RATE = 4,
+    RATE_DECREASE = 0.90,
 }
 
 -- Keys

@@ -1,7 +1,7 @@
 Food = Class{}
 
 function Food:init()
-    self.x = FOOD.INIT_X
+    self.x = love.math.random(H_PADDING, VIRTUAL_WIDTH - H_PADDING)
     self.y = FOOD.INIT_Y
     self.dy = FOOD.INIT_DY
     self.width = FOOD.WIDTH

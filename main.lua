@@ -11,7 +11,7 @@ Class = require 'class'
 require 'constants'
 require 'Header'
 require 'Player'
-require 'Food'
+require 'FoodSpawner'
 
 function love.load()
     love.window.setTitle(TITLE.TEXT)
@@ -28,7 +28,7 @@ function love.load()
     })
 
     player = Player()
-    food = Food()
+    foods = FoodSpawner()
 end
 
 function love.resize(w, h)
@@ -46,12 +46,12 @@ function love.draw()
 
     Header:draw(0)
     player:draw()
-    food:draw()
+    foods:draw()
 
     push:apply('end')
 end
 
 function love.update(dt)
+    foods:update(dt)
     player:update(dt)
-    food:update(dt)
 end
