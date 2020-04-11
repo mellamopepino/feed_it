@@ -26,15 +26,3 @@ function Player:update(dt)
     self:handle_move()
     self.x = self.x + self.dx * dt
 end
-
-function Player:collides(object)
-    if self.x > object.x + object.width or object.x > self.x + self.width then
-        return false
-    end
-
-    if self.y > object.y + object.height or object.y > self.y + self.height then
-        return false
-    end 
-
-    return true
-end

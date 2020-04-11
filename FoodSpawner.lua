@@ -26,16 +26,10 @@ function FoodSpawner:update(dt)
     end
 end
 
-function FoodSpawner:collisions(player)
-    local totalCollisions = 0
-    local newFoods = {}
-    for i = 1, #self.foods do
-        if player:collides(self.foods[i]) then
-            totalCollisions = totalCollisions + 1
-        else
-            table.insert(newFoods, self.foods[i])
-        end
-    end
-    self.foods = newFoods
-    return totalCollisions
+function FoodSpawner:getList()
+    return self.foods
+end
+
+function FoodSpawner:updateList(newList)
+    self.foods = newList
 end

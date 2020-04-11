@@ -14,6 +14,7 @@ require 'Player'
 require 'FoodSpawner'
 require 'Score'
 require 'Empachado'
+require 'CollisionsHandler'
 
 function love.load()
     love.window.setTitle(TITLE.TEXT)
@@ -33,6 +34,7 @@ function love.load()
     foods = FoodSpawner()
     score = Score()
     empachado = Empachado()
+    collisionsHandler = CollisionsHandler(player, foods)
 end
 
 function love.resize(w, h)
@@ -59,5 +61,5 @@ end
 function love.update(dt)
     foods:update(dt)
     player:update(dt)
-    score:update(foods, player)
+    collisionsHandler:handleCollisions({ score, empachado })
 end

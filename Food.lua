@@ -6,6 +6,7 @@ function Food:init()
     self.dy = FOOD.INIT_DY
     self.width = FOOD.WIDTH
     self.height = FOOD.HEIGHT
+    self.level = FOOD.LEVEL
 end
 
 function Food:draw()
@@ -14,4 +15,8 @@ end
 
 function Food:update(dt)
     self.y = self.y + self.dy * dt
+end
+
+function Food:getTotal()
+    return self.level
 end

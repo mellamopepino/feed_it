@@ -4,8 +4,8 @@ function Score:init()
     self.score = 0
 end
 
-function Score:update(foods, player)
-    self.score = self.score + foods:collisions(player)
+function Score:update(collisions)
+    self.score = self.score + collisions.count
 end
 
 function Score:getScore()

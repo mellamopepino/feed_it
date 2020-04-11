@@ -23,3 +23,7 @@ function Empachado:draw()
         self.levelBox.HEIGHT
     )
 end
+
+function Empachado:update(collisions)
+    self.level = self.level + collisions.total
+end
