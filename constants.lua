@@ -56,6 +56,20 @@ PLAYER = {
     HEIGHT = PLAYER_SIDE,
 }
 
+-- Food
+
+FOOD_SIDE = 4
+
+FOOD = {
+    INIT_X = love.math.random(H_PADDING, VIRTUAL_WIDTH - H_PADDING),
+    INIT_Y = GAME_CONTAINER_TOP,
+    INIT_DY = 100,
+    WIDTH = FOOD_SIDE,
+    HEIGHT = FOOD_SIDE,
+}
+
+-- Keys
+
 KEYS = {
     RIGHT = 'd',
     LEFT = 'a',

@@ -11,9 +11,12 @@ Class = require 'class'
 require 'constants'
 require 'Header'
 require 'Player'
+require 'Food'
 
 function love.load()
     love.window.setTitle(TITLE.TEXT)
+
+    math.randomseed(os.time())
 
     love.graphics.setDefaultFilter('nearest', 'nearest')
     love.graphics.setFont(SMALL_FONT)
@@ -25,6 +28,7 @@ function love.load()
     })
 
     player = Player()
+    food = Food()
 end
 
 function love.resize(w, h)
@@ -42,9 +46,12 @@ function love.draw()
 
     Header:draw(0)
     player:draw()
+    food:draw()
+
     push:apply('end')
 end
 
 function love.update(dt)
     player:update(dt)
+    food:update(dt)
 end
