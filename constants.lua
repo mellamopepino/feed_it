@@ -83,7 +83,7 @@ KEYS = {
     QUIT = 'escape',
 }
 
--- Empechado level
+-- Empachado level
 
 BOX_PADDING = 2
 BOX_WIDTH = 60
