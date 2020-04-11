@@ -12,6 +12,7 @@ require 'constants'
 require 'Header'
 require 'Player'
 require 'FoodSpawner'
+require 'Score'
 
 function love.load()
     love.window.setTitle(TITLE.TEXT)
@@ -29,6 +30,7 @@ function love.load()
 
     player = Player()
     foods = FoodSpawner()
+    score = Score()
 end
 
 function love.resize(w, h)
@@ -44,7 +46,7 @@ end
 function love.draw()
     push:apply('start')
 
-    Header:draw(0)
+    Header:draw(score:getScore())
     player:draw()
     foods:draw()
 
@@ -54,4 +56,5 @@ end
 function love.update(dt)
     foods:update(dt)
     player:update(dt)
+    score:update(foods, player)
 end
