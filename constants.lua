@@ -105,13 +105,13 @@ KEYS = {
     QUIT = 'escape',
 }
 
--- Empachado level
+-- Stomach level
 
 BOX_PADDING = 2
 BOX_WIDTH = 60
 BOX_HEIGHT = 8
 
-EMPACHADO = {
+STOMACH = {
     CONTAINER_BOX = {
         X = H_PADDING,
         Y = HEADER_TEXT_Y,
@@ -126,4 +126,6 @@ EMPACHADO = {
     },
     INIT_LEVEL = 0,
     MAX_LEVEL = 100,
+    HUNGER_RATE = 3,
+    HUNGER_LEVEL = -5,
 }

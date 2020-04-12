@@ -4,7 +4,7 @@ function Score:init()
     self.score = 0
 end
 
-function Score:update(collisions)
+function Score:update(dt, collisions)
     self.score = self.score + collisions.count
 end
 

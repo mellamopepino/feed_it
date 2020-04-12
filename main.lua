@@ -13,7 +13,7 @@ require 'Header'
 require 'Player'
 require 'FoodSpawner'
 require 'Score'
-require 'Empachado'
+require 'Stomach'
 require 'CollisionsHandler'
 
 function love.load()
@@ -33,7 +33,7 @@ function love.load()
     player = Player()
     foods = FoodSpawner()
     score = Score()
-    empachado = Empachado()
+    stomach = Stomach()
     collisionsHandler = CollisionsHandler(player, foods)
 end
 
@@ -53,7 +53,7 @@ function love.draw()
     Header:draw(score:getScore())
     player:draw()
     foods:draw()
-    empachado:draw()
+    stomach:draw()
 
     push:apply('end')
 end
@@ -61,5 +61,5 @@ end
 function love.update(dt)
     foods:update(dt)
     player:update(dt)
-    collisionsHandler:handleCollisions({ score, empachado })
+    collisionsHandler:handleCollisions(dt, { score, stomach })
 end

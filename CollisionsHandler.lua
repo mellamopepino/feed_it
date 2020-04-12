@@ -45,9 +45,9 @@ function CollisionsHandler:getCollisions()
     return collisions
 end
 
-function CollisionsHandler:handleCollisions(updateList)
+function CollisionsHandler:handleCollisions(dt, updateList)
     local collisions = self:getCollisions()
     for i = 1, #updateList do
-        updateList[i]:update(collisions)
+        updateList[i]:update(dt, collisions)
     end
 end
