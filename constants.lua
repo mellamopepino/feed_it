@@ -33,14 +33,6 @@ TITLE = {
     POSITION = 'center',
 }
 
-SCORE = {
-    TEXT = 'Score: ',
-    X = 0,
-    Y = HEADER_TEXT_Y,
-    LIMIT = HEADER_WIDTH,
-    POSITION = 'right',
-}
-
 HEADER_DIVIDER_POINTS = {
     H_PADDING, HEADER_HEIGHT,
     VIRTUAL_WIDTH - H_PADDING, HEADER_HEIGHT,
@@ -49,6 +41,16 @@ HEADER_DIVIDER_POINTS = {
 -- Game container
 
 GAME_CONTAINER_TOP = HEADER_HEIGHT
+
+-- Score
+
+SCORE = {
+    TEXT = 'Score: ',
+    X = 0,
+    Y = HEADER_TEXT_Y,
+    LIMIT = HEADER_WIDTH,
+    POSITION = 'right',
+}
 
 -- Player
 

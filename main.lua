@@ -50,9 +50,10 @@ end
 function love.draw()
     push:apply('start')
 
-    Header:draw(score:getScore())
+    Header:draw()
     player:draw()
     foods:draw()
+    score:draw()
     stomach:draw()
 
     push:apply('end')
