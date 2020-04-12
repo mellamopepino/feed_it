@@ -12,6 +12,12 @@ SMALL_FONT = love.graphics.newFont('font.ttf', 8)
 MEDIUM_FONT = love.graphics.newFont('font.ttf', 16)
 LARGE_FONT = love.graphics.newFont('font.ttf', 32)
 
+--- Colors
+
+WHITE = { 1, 1, 1, 1 }
+LIGHT_BLUE = { 3/255, 219/255, 252/255, 1 }
+RESET_COLOR = WHITE
+
 -- Header
 
 H_PADDING = 30
@@ -60,12 +66,26 @@ PLAYER = {
 
 FOOD_SIDE = 4
 
+TYPE_FOOD = 'FOOD'
+TYPE_WATER = 'WATER'
+
 FOOD = {
-    INIT_Y = GAME_CONTAINER_TOP,
-    INIT_DY = 100,
-    WIDTH = FOOD_SIDE,
-    HEIGHT = FOOD_SIDE,
-    LEVEL = 10
+    FOOD = {
+        INIT_Y = GAME_CONTAINER_TOP,
+        INIT_DY = 100,
+        WIDTH = FOOD_SIDE,
+        HEIGHT = FOOD_SIDE,
+        LEVEL = 10,
+        COLOR = WHITE,
+    },
+    WATER = {
+        INIT_Y = GAME_CONTAINER_TOP,
+        INIT_DY = 100,
+        WIDTH = FOOD_SIDE,
+        HEIGHT = FOOD_SIDE,
+        LEVEL = -20,
+        COLOR = LIGHT_BLUE,
+    }
 }
 
 -- Food Spawner
@@ -73,6 +93,8 @@ FOOD = {
 FOOD_SPAWNER = {
     INIT_RATE = 2,
     RATE_DECREASE = 0.90,
+    WATER_MIN_RATE = 4,
+    WATER_MAX_RATE = 8,
 }
 
 -- Keys

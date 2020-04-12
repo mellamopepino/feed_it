@@ -1,16 +1,19 @@
 Food = Class{}
 
-function Food:init()
+function Food:init(type)
     self.x = love.math.random(H_PADDING, VIRTUAL_WIDTH - H_PADDING)
-    self.y = FOOD.INIT_Y
-    self.dy = FOOD.INIT_DY
-    self.width = FOOD.WIDTH
-    self.height = FOOD.HEIGHT
-    self.level = FOOD.LEVEL
+    self.y = FOOD[type].INIT_Y
+    self.dy = FOOD[type].INIT_DY
+    self.width = FOOD[type].WIDTH
+    self.height = FOOD[type].HEIGHT
+    self.level = FOOD[type].LEVEL
+    self.color = FOOD[type].COLOR
 end
 
 function Food:draw()
+    love.graphics.setColor(self.color)
     love.graphics.rectangle('fill', self.x, self.y, self.width, self.height)
+    love.graphics.setColor(RESET_COLOR)
 end
 
 function Food:update(dt)
