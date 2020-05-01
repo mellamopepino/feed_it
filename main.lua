@@ -10,7 +10,9 @@ push = require 'push'
 Class = require 'class'
 
 require 'StateMachine'
+require 'states/BaseState'
 require 'states/PlayState'
+require 'states/TitleState'
 
 require 'constants'
 require 'Header'
@@ -35,9 +37,10 @@ function love.load()
     })
 
     gStateMachine = StateMachine {
+      [STATE.TITLE] = function() return TitleState() end,
       [STATE.PLAY] = function() return PlayState() end,
     }
-    gStateMachine:change(STATE.PLAY)
+    gStateMachine:change(STATE.TITLE)
 
 end
 
