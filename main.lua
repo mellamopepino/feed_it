@@ -42,6 +42,8 @@ function love.load()
     }
     gStateMachine:change(STATE.TITLE)
 
+    love.keyboard.keysPressed = {}
+
 end
 
 function love.resize(w, h)
@@ -49,9 +51,15 @@ function love.resize(w, h)
 end
 
 function love.keypressed(key)
+    love.keyboard.keysPressed[key] = true
+
     if key == KEYS.QUIT then
         love.event.quit()
     end
+end
+
+function love.keyboard.wasPressed(key)
+  return love.keyboard.keysPressed[key]
 end
 
 function love.draw()
@@ -64,4 +72,6 @@ end
 
 function love.update(dt)
     gStateMachine:update(dt)
+
+    love.keyboard.keysPressed = {}
 end

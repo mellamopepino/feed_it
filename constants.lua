@@ -18,6 +18,26 @@ WHITE = { 1, 1, 1, 1 }
 LIGHT_BLUE = { 3/255, 219/255, 252/255, 1 }
 RESET_COLOR = WHITE
 
+-- Title Screen
+
+TITLE = {
+    TEXT = 'Feed it! U^I^U',
+    X = 0,
+    Y = 64,
+    LIMIT = VIRTUAL_WIDTH,
+    POSITION = 'center',
+}
+
+TITLE_OPTION = {
+  START = {
+    TEXT = 'start',
+    X = 0,
+    Y = 100,
+    LIMIT = VIRTUAL_WIDTH,
+    POSITION = 'center',
+  },
+}
+
 -- Header
 
 H_PADDING = 30
@@ -25,8 +45,8 @@ HEADER_TEXT_Y = 15
 HEADER_WIDTH = VIRTUAL_WIDTH - H_PADDING
 HEADER_HEIGHT = 30
 
-TITLE = {
-    TEXT = 'Feed it! U^I^U',
+HEADER_TITLE = {
+    TEXT = TITLE.TEXT,
     X = H_PADDING,
     Y = HEADER_TEXT_Y,
     LIMIT = HEADER_WIDTH,
