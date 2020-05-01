@@ -8,8 +8,11 @@ function GameoverState:enter(params)
 end
 
 function GameoverState:draw()
-  love.graphics.setFont(LARGE_FONT)
-  love.graphics.printf('Too much food!', 0, 64, VIRTUAL_WIDTH, 'center')
-  love.graphics.setFont(MEDIUM_FONT)
-  love.graphics.printf('Score: ' .. self.score, 0, 100, VIRTUAL_WIDTH, 'center')
+  local TITLE = GAMEOVER.TEXT
+  local SCORE = GAMEOVER.SCORE
+
+  love.graphics.setFont(TITLE.FONT)
+  love.graphics.printf(TITLE[self.state], TITLE.X, TITLE.Y, TITLE.LIMIT, TITLE.POSITION)
+  love.graphics.setFont(SCORE.FONT)
+  love.graphics.printf(SCORE.BEFORE .. self.score, SCORE.X, SCORE.Y, SCORE.LIMIT, SCORE.POSITION)
 end

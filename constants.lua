@@ -151,10 +151,33 @@ STOMACH = {
     HUNGER_RATE = 3,
     HUNGER_LEVEL = -5,
     STATE = {
-      INIT = 1,
-      EMPTY = 2,
-      FULL = 3,
+      INIT = 'INIT',
+      EMPTY = 'EMPTY',
+      FULL = 'FULL',
     }
+}
+
+-- Gomeover
+
+GAMEOVER = {
+  TEXT = {
+    FONT = LARGE_FONT,
+    FULL = 'Too much food!',
+    EMPTY = 'Too few food!',
+    INIT = 'Whatever',
+    X = 0,
+    Y = 64,
+    LIMIT = VIRTUAL_WIDTH,
+    POSITION = 'center',
+  },
+  SCORE = {
+    FONT = MEDIUM_FONT,
+    BEFORE = 'Score: ',
+    X = 0,
+    Y = 100,
+    LIMIT = VIRTUAL_WIDTH,
+    POSITION = 'center',
+  }
 }
 
 -- States
