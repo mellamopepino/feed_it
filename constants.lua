@@ -30,7 +30,7 @@ TITLE = {
 
 TITLE_OPTION = {
   START = {
-    TEXT = 'start',
+    TEXT = 'play',
     X = 0,
     Y = 100,
     LIMIT = VIRTUAL_WIDTH,
