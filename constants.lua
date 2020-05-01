@@ -150,6 +150,11 @@ STOMACH = {
     MAX_LEVEL = 100,
     HUNGER_RATE = 3,
     HUNGER_LEVEL = -5,
+    STATE = {
+      INIT = 1,
+      EMPTY = 2,
+      FULL = 3,
+    }
 }
 
 -- States

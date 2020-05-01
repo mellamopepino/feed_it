@@ -12,14 +12,9 @@ Class = require 'class'
 require 'StateMachine'
 require 'states/PlayState'
 require 'states/TitleState'
+require 'states/GameoverState'
 
 require 'constants'
-require 'Header'
-require 'Player'
-require 'FoodSpawner'
-require 'Score'
-require 'Stomach'
-require 'CollisionsHandler'
 
 function love.load()
     love.window.setTitle(TITLE.TEXT)
@@ -38,6 +33,7 @@ function love.load()
     gStateMachine = StateMachine {
       [STATE.TITLE] = function() return TitleState() end,
       [STATE.PLAY] = function() return PlayState() end,
+      [STATE.GAMEOVER] = function() return GameoverState() end,
     }
     gStateMachine:change(STATE.TITLE)
 

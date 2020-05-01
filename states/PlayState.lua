@@ -20,6 +20,13 @@ function PlayState:update(dt)
     self.foods:update(dt)
     self.player:update(dt)
     self.collisionsHandler:handleCollisions(dt, { self.score, self.stomach })
+
+    if(self.stomach:isDead()) then
+      gStateMachine:change(STATE.GAMEOVER, {
+        score = self.score.score,
+        state = self.stomach.state,
+      })
+    end
 end
 
 function PlayState:draw()
