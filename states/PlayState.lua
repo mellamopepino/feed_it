@@ -1,3 +1,11 @@
+require 'states/BaseState'
+require 'Header'
+require 'Player'
+require 'FoodSpawner'
+require 'Score'
+require 'Stomach'
+require 'CollisionsHandler'
+
 PlayState = Class{__includes = BaseState}
 
 function PlayState:init()
@@ -21,8 +29,4 @@ function PlayState:draw()
     self.score:draw()
     self.stomach:draw()
 end
-
-function PlayState:enter() end
-
-function PlayState:exit() end
 

@@ -10,7 +10,6 @@ push = require 'push'
 Class = require 'class'
 
 require 'StateMachine'
-require 'states/BaseState'
 require 'states/PlayState'
 require 'states/TitleState'
 

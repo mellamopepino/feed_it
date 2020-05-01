@@ -1,3 +1,5 @@
+require 'states/BaseState'
+
 TitleState = Class{__includes = BaseState}
 
 function TitleState:init() end
