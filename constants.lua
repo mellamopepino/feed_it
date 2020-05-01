@@ -131,3 +131,11 @@ STOMACH = {
     HUNGER_RATE = 3,
     HUNGER_LEVEL = -5,
 }
+
+-- States
+
+STATE = {
+    TITLE = 'title',
+    PLAY = 'play',
+    GAMEOVER = 'gameover',
+}

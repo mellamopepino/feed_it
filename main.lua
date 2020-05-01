@@ -8,6 +8,10 @@
 
 push = require 'push'
 Class = require 'class'
+
+require 'StateMachine'
+require 'states/PlayState'
+
 require 'constants'
 require 'Header'
 require 'Player'
@@ -30,11 +34,11 @@ function love.load()
         vsync = true
     })
 
-    player = Player()
-    foods = FoodSpawner()
-    score = Score()
-    stomach = Stomach()
-    collisionsHandler = CollisionsHandler(player, foods)
+    gStateMachine = StateMachine {
+      [STATE.PLAY] = function() return PlayState() end,
+    }
+    gStateMachine:change(STATE.PLAY)
+
 end
 
 function love.resize(w, h)
@@ -50,17 +54,11 @@ end
 function love.draw()
     push:apply('start')
 
-    Header:draw()
-    player:draw()
-    foods:draw()
-    score:draw()
-    stomach:draw()
+    gStateMachine:draw()
 
     push:apply('end')
 end
 
 function love.update(dt)
-    foods:update(dt)
-    player:update(dt)
-    collisionsHandler:handleCollisions(dt, { score, stomach })
+    gStateMachine:update(dt)
 end
