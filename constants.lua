@@ -3,18 +3,23 @@
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
 
-VIRTUAL_WIDTH = 432
-VIRTUAL_HEIGHT = 243
+VIRTUAL_WIDTH = 497
+VIRTUAL_HEIGHT = 280
 
 -- Fonts
 
-SMALL_FONT = love.graphics.newFont('font.ttf', 8)
-MEDIUM_FONT = love.graphics.newFont('font.ttf', 16)
-LARGE_FONT = love.graphics.newFont('font.ttf', 32)
+SMALL_FONT_SIZE = 8 * math.ceil((VIRTUAL_WIDTH / VIRTUAL_HEIGHT))
+MEDIUM_FONT_SIZE = 16 * math.ceil((VIRTUAL_WIDTH / VIRTUAL_HEIGHT))
+LARGE_FONT_SIZE = 24 * math.ceil((VIRTUAL_WIDTH / VIRTUAL_HEIGHT))
+
+SMALL_FONT = love.graphics.newFont('font.ttf', SMALL_FONT_SIZE)
+MEDIUM_FONT = love.graphics.newFont('font.ttf', MEDIUM_FONT_SIZE)
+LARGE_FONT = love.graphics.newFont('font.ttf', LARGE_FONT_SIZE)
 
 --- Colors
 
 WHITE = { 1, 1, 1, 1 }
+TRANSPARENT_WHITE = { 1, 1, 1, 0.8 }
 LIGHT_BLUE = { 3/255, 219/255, 252/255, 1 }
 RESET_COLOR = WHITE
 
@@ -23,7 +28,7 @@ RESET_COLOR = WHITE
 TITLE = {
     TEXT = 'Feed it! U^I^U',
     X = 0,
-    Y = 64,
+    Y = (VIRTUAL_HEIGHT / 4),
     LIMIT = VIRTUAL_WIDTH,
     POSITION = 'center',
 }
@@ -32,7 +37,7 @@ TITLE_OPTION = {
   START = {
     TEXT = 'play',
     X = 0,
-    Y = 100,
+    Y = (VIRTUAL_HEIGHT / 2),
     LIMIT = VIRTUAL_WIDTH,
     POSITION = 'center',
   },
@@ -43,7 +48,7 @@ TITLE_OPTION = {
 H_PADDING = 30
 HEADER_TEXT_Y = 15
 HEADER_WIDTH = VIRTUAL_WIDTH - H_PADDING
-HEADER_HEIGHT = 30
+HEADER_HEIGHT = (HEADER_TEXT_Y * 2) + SMALL_FONT_SIZE
 
 HEADER_TITLE = {
     TEXT = TITLE.TEXT,
@@ -74,19 +79,19 @@ SCORE = {
 
 -- Player
 
-PLAYER_SIDE = 8
+PLAYER_SIDE = SMALL_FONT_SIZE
 
 PLAYER = {
     INIT_X = (VIRTUAL_WIDTH / 2) - (PLAYER_SIDE / 2),
     INIT_Y = VIRTUAL_HEIGHT - PLAYER_SIDE,
-    INIT_DX = 200,
+    INIT_DX = VIRTUAL_WIDTH * (3/4),
     WIDTH = PLAYER_SIDE,
     HEIGHT = PLAYER_SIDE,
 }
 
 -- Food
 
-FOOD_SIDE = 4
+FOOD_SIDE = SMALL_FONT_SIZE / 2
 
 TYPE_FOOD = 'FOOD'
 TYPE_WATER = 'WATER'
@@ -94,7 +99,7 @@ TYPE_WATER = 'WATER'
 FOOD = {
     FOOD = {
         INIT_Y = GAME_CONTAINER_TOP,
-        INIT_DY = 100,
+        INIT_DY = VIRTUAL_HEIGHT / 2,
         WIDTH = FOOD_SIDE,
         HEIGHT = FOOD_SIDE,
         LEVEL = 10,
@@ -102,7 +107,7 @@ FOOD = {
     },
     WATER = {
         INIT_Y = GAME_CONTAINER_TOP,
-        INIT_DY = 100,
+        INIT_DY = VIRTUAL_HEIGHT / 2,
         WIDTH = FOOD_SIDE,
         HEIGHT = FOOD_SIDE,
         LEVEL = -20,
@@ -129,9 +134,9 @@ KEYS = {
 
 -- Stomach level
 
-BOX_PADDING = 2
-BOX_WIDTH = 60
-BOX_HEIGHT = 8
+BOX_PADDING = SMALL_FONT_SIZE / 8
+BOX_WIDTH = SMALL_FONT_SIZE * (15/2)
+BOX_HEIGHT = SMALL_FONT_SIZE
 
 STOMACH = {
     CONTAINER_BOX = {
@@ -166,7 +171,7 @@ GAMEOVER = {
     EMPTY = 'Too few food!',
     INIT = 'Whatever',
     X = 0,
-    Y = 64,
+    Y = VIRTUAL_HEIGHT / 8,
     LIMIT = VIRTUAL_WIDTH,
     POSITION = 'center',
   },
@@ -174,7 +179,7 @@ GAMEOVER = {
     FONT = MEDIUM_FONT,
     BEFORE = 'Score: ',
     X = 0,
-    Y = 100,
+    Y = VIRTUAL_HEIGHT / 3,
     LIMIT = VIRTUAL_WIDTH,
     POSITION = 'center',
   }

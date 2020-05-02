@@ -12,6 +12,8 @@ function Stomach:init()
 end
 
 function Stomach:draw()
+    love.graphics.setLineWidth(2)
+    love.graphics.setColor(TRANSPARENT_WHITE)
     love.graphics.rectangle(
         'line',
         self.containerBox.X,
@@ -19,6 +21,8 @@ function Stomach:draw()
         self.containerBox.WIDTH,
         self.containerBox.HEIGHT
     )
+    love.graphics.setLineWidth(1)
+    love.graphics.setColor(WHITE)
     love.graphics.rectangle(
         'fill',
         self.levelBox.X,

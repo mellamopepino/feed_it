@@ -11,8 +11,7 @@ function TitleState:draw()
   love.graphics.printf(TITLE.TEXT, TITLE.X, TITLE.Y, TITLE.LIMIT, TITLE.POSITION)
   love.graphics.setFont(SMALL_FONT)
 
-  love.graphics.printf('>', START.X, START.Y, START.LIMIT-35, START.POSITION)
-  love.graphics.printf(START.TEXT, START.X, START.Y, START.LIMIT, START.POSITION)
+  love.graphics.printf('> ' .. START.TEXT, START.X, START.Y, START.LIMIT, START.POSITION)
 end
 
 function TitleState:update(dt)
