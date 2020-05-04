@@ -182,7 +182,11 @@ GAMEOVER = {
     Y = VIRTUAL_HEIGHT / 3,
     LIMIT = VIRTUAL_WIDTH,
     POSITION = 'center',
-  }
+  },
+  PUFU = {
+    X = VIRTUAL_WIDTH - SMALL_FONT_SIZE,
+    Y = VIRTUAL_HEIGHT - SMALL_FONT_SIZE,
+  },
 }
 
 -- States
