@@ -12,9 +12,9 @@ SMALL_FONT_SIZE = 8 * math.ceil((VIRTUAL_WIDTH / VIRTUAL_HEIGHT))
 MEDIUM_FONT_SIZE = 16 * math.ceil((VIRTUAL_WIDTH / VIRTUAL_HEIGHT))
 LARGE_FONT_SIZE = 24 * math.ceil((VIRTUAL_WIDTH / VIRTUAL_HEIGHT))
 
-SMALL_FONT = love.graphics.newFont('font.ttf', SMALL_FONT_SIZE)
-MEDIUM_FONT = love.graphics.newFont('font.ttf', MEDIUM_FONT_SIZE)
-LARGE_FONT = love.graphics.newFont('font.ttf', LARGE_FONT_SIZE)
+SMALL_FONT = love.graphics.newFont('fonts/font.ttf', SMALL_FONT_SIZE)
+MEDIUM_FONT = love.graphics.newFont('fonts/font.ttf', MEDIUM_FONT_SIZE)
+LARGE_FONT = love.graphics.newFont('fonts/font.ttf', LARGE_FONT_SIZE)
 
 --- Colors
 

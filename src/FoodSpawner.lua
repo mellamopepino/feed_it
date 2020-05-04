@@ -1,4 +1,4 @@
-require 'Food'
+require 'src/Food'
 
 FoodSpawner = Class{}
 

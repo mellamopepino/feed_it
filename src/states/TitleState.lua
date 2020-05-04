@@ -1,4 +1,4 @@
-require 'states/BaseState'
+require 'src/states/BaseState'
 
 TitleState = Class{__includes = BaseState}
 

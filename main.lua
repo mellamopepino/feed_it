@@ -6,15 +6,15 @@
     Author: Delfina García Villamor
 ]]
 
-push = require 'push'
-Class = require 'class'
+push = require 'lib/push'
+Class = require 'lib/class'
 
-require 'StateMachine'
-require 'states/PlayState'
-require 'states/TitleState'
-require 'states/GameoverState'
+require 'src/StateMachine'
+require 'src/states/PlayState'
+require 'src/states/TitleState'
+require 'src/states/GameoverState'
 
-require 'constants'
+require 'src/constants'
 
 function love.load()
     love.window.setTitle(TITLE.TEXT)

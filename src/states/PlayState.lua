@@ -1,10 +1,10 @@
-require 'states/BaseState'
-require 'Header'
-require 'Player'
-require 'FoodSpawner'
-require 'Score'
-require 'Stomach'
-require 'CollisionsHandler'
+require 'src/states/BaseState'
+require 'src/Header'
+require 'src/Player'
+require 'src/FoodSpawner'
+require 'src/Score'
+require 'src/Stomach'
+require 'src/CollisionsHandler'
 
 PlayState = Class{__includes = BaseState}
 
