@@ -33,16 +33,6 @@ TITLE = {
     POSITION = 'center',
 }
 
-TITLE_OPTION = {
-  START = {
-    TEXT = 'play',
-    X = 0,
-    Y = (VIRTUAL_HEIGHT / 2),
-    LIMIT = VIRTUAL_WIDTH,
-    POSITION = 'center',
-  },
-}
-
 -- Header
 
 H_PADDING = 30
@@ -156,37 +146,38 @@ STOMACH = {
     HUNGER_RATE = 3,
     HUNGER_LEVEL = -5,
     STATE = {
-      INIT = 'INIT',
-      EMPTY = 'EMPTY',
-      FULL = 'FULL',
+        INIT = 'INIT',
+        EMPTY = 'EMPTY',
+        FULL = 'FULL',
     }
 }
 
 -- Gomeover
 
 GAMEOVER = {
-  TEXT = {
-    FONT = LARGE_FONT,
-    FULL = 'Too much food!',
-    EMPTY = 'Too few food!',
-    INIT = 'Whatever',
-    X = 0,
-    Y = VIRTUAL_HEIGHT / 8,
-    LIMIT = VIRTUAL_WIDTH,
-    POSITION = 'center',
-  },
-  SCORE = {
-    FONT = MEDIUM_FONT,
-    BEFORE = 'Score: ',
-    X = 0,
-    Y = VIRTUAL_HEIGHT / 3,
-    LIMIT = VIRTUAL_WIDTH,
-    POSITION = 'center',
-  },
-  PUFU = {
-    X = VIRTUAL_WIDTH - SMALL_FONT_SIZE,
-    Y = VIRTUAL_HEIGHT - SMALL_FONT_SIZE,
-  },
+    TEXT = {
+        FONT = LARGE_FONT,
+        FULL = 'Too much food!',
+        EMPTY = 'Too few food!',
+        INIT = 'Whatever',
+        X = 0,
+        Y = VIRTUAL_HEIGHT / 8,
+        LIMIT = VIRTUAL_WIDTH,
+        POSITION = 'center',
+    },
+    SCORE = {
+        FONT = MEDIUM_FONT,
+        BEFORE = 'Score: ',
+        X = 0,
+        Y = VIRTUAL_HEIGHT / 3,
+        LIMIT = VIRTUAL_WIDTH,
+        POSITION = 'center',
+    },
+    PUFU = {
+        IMAGE = 'images/pufu/sorprise-pufu.png',
+        X = VIRTUAL_WIDTH - SMALL_FONT_SIZE,
+        Y = VIRTUAL_HEIGHT - SMALL_FONT_SIZE,
+    },
 }
 
 -- States
@@ -196,3 +187,18 @@ STATE = {
     PLAY = 'play',
     GAMEOVER = 'gameover',
 }
+
+-- Menu
+
+MENU = {
+    FONT = SMALL_FONT,
+    X = 0,
+    Y = function (i)
+            return VIRTUAL_HEIGHT / 2 + (i-1)*SMALL_FONT_SIZE
+        end,
+    LIMIT = VIRTUAL_WIDTH,
+    POSITION = 'center',
+    DOWN_KEY = 'down',
+    UP_KEY = 'up',
+}
+

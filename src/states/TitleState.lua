@@ -1,21 +1,30 @@
 require 'src/states/BaseState'
+require 'src/Menu'
 
 TitleState = Class{__includes = BaseState}
 
-function TitleState:init() end
+function TitleState:init()
+    local options = {
+        {
+            text = 'start',
+            onSelect =  function () gStateMachine:change(STATE.PLAY) end,
+        },
+        {
+            text = 'instructions',
+            onSelect =  function () gStateMachine:change(STATE.PLAY) end,
+        }
+    }
+
+    self.menu = Menu(options)
+end
 
 function TitleState:draw()
-  local START = TITLE_OPTION.START
+    love.graphics.setFont(MEDIUM_FONT)
+    love.graphics.printf(TITLE.TEXT, TITLE.X, TITLE.Y, TITLE.LIMIT, TITLE.POSITION)
 
-  love.graphics.setFont(MEDIUM_FONT)
-  love.graphics.printf(TITLE.TEXT, TITLE.X, TITLE.Y, TITLE.LIMIT, TITLE.POSITION)
-  love.graphics.setFont(SMALL_FONT)
-
-  love.graphics.printf('> ' .. START.TEXT, START.X, START.Y, START.LIMIT, START.POSITION)
+    self.menu:draw()
 end
 
 function TitleState:update(dt)
-  if love.keyboard.wasPressed('space') or love.keyboard.wasPressed('return') then
-    gStateMachine:change(STATE.PLAY)
-  end
+    self.menu:update(dt)
 end

@@ -1,33 +1,46 @@
 require 'src/states/BaseState'
+require 'src/Menu'
 
 GameoverState = Class{__includes = BaseState}
 
+function GameoverState:init()
+    local options = {
+        {
+            text = 'start',
+            onSelect =  function () gStateMachine:change(STATE.PLAY) end,
+        },
+        {
+            text = 'menu',
+            onSelect =  function () gStateMachine:change(STATE.TITLE) end,
+        },
+    }
+
+    self.menu = Menu(options)
+    self.image = love.graphics.newImage(GAMEOVER.PUFU.IMAGE)
+end
+
 function GameoverState:enter(params)
-  self.score = params.score
-  self.state = params.state
-  self.image = love.graphics.newImage('images/pufu/sorprise-pufu.png')
+    self.score = params.score
+    self.state = params.state
 end
 
 function GameoverState:draw()
-  local TITLE = GAMEOVER.TEXT
-  local SCORE = GAMEOVER.SCORE
-  local PUFU = GAMEOVER.PUFU
-  local START = TITLE_OPTION.START
+    local TITLE = GAMEOVER.TEXT
+    local SCORE = GAMEOVER.SCORE
+    local PUFU = GAMEOVER.PUFU
 
-  love.graphics.setFont(TITLE.FONT)
-  love.graphics.printf(TITLE[self.state], TITLE.X, TITLE.Y, TITLE.LIMIT, TITLE.POSITION)
-  love.graphics.setFont(SCORE.FONT)
-  love.graphics.printf(SCORE.BEFORE .. self.score, SCORE.X, SCORE.Y, SCORE.LIMIT, SCORE.POSITION)
+    love.graphics.setFont(TITLE.FONT)
+    love.graphics.printf(TITLE[self.state], TITLE.X, TITLE.Y, TITLE.LIMIT, TITLE.POSITION)
 
-  love.graphics.setFont(SMALL_FONT)
-  love.graphics.printf('> ' .. START.TEXT, START.X, START.Y + 30, START.LIMIT, START.POSITION)
+    love.graphics.setFont(SCORE.FONT)
+    love.graphics.printf(SCORE.BEFORE .. self.score, SCORE.X, SCORE.Y, SCORE.LIMIT, SCORE.POSITION)
 
-  width, height = self.image:getDimensions()
-  love.graphics.draw(self.image, PUFU.X - width , PUFU.Y - height)
+    self.menu:draw()
+
+    width, height = self.image:getDimensions()
+    love.graphics.draw(self.image, PUFU.X - width , PUFU.Y - height)
 end
 
-function GameoverState:update()
-  if love.keyboard.wasPressed('space') or love.keyboard.wasPressed('return') then
-    gStateMachine:change(STATE.PLAY)
-  end
+function GameoverState:update(dt)
+    self.menu:update(dt)
 end

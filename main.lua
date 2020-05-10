@@ -25,7 +25,7 @@ function love.load()
     love.graphics.setFont(SMALL_FONT)
 
     push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
-        fullscreen = true,
+        fullscreen = false,
         resizable = false,
         vsync = true
     })
@@ -69,4 +69,8 @@ function love.update(dt)
     gStateMachine:update(dt)
 
     love.keyboard.keysPressed = {}
+end
+
+function love.conf(t)
+    t.console = true
 end
