@@ -19,6 +19,7 @@ function TitleState:init()
 end
 
 function TitleState:draw()
+    love.graphics.setColor(WHITE)
     love.graphics.setFont(MEDIUM_FONT)
     love.graphics.printf(TITLE.TEXT, TITLE.X, TITLE.Y, TITLE.LIMIT, TITLE.POSITION)
 

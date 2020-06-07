@@ -29,14 +29,17 @@ function GameoverState:draw()
     local SCORE = GAMEOVER.SCORE
     local PUFU = GAMEOVER.PUFU
 
+    love.graphics.setColor(WHITE)
     love.graphics.setFont(TITLE.FONT)
     love.graphics.printf(TITLE[self.state], TITLE.X, TITLE.Y, TITLE.LIMIT, TITLE.POSITION)
 
+    love.graphics.setColor(WHITE)
     love.graphics.setFont(SCORE.FONT)
     love.graphics.printf(SCORE.BEFORE .. self.score, SCORE.X, SCORE.Y, SCORE.LIMIT, SCORE.POSITION)
 
     self.menu:draw()
 
+    love.graphics.setColor(WHITE)
     width, height = self.image:getDimensions()
     love.graphics.draw(self.image, PUFU.X - width , PUFU.Y - height)
 end

@@ -9,6 +9,7 @@ function Player:init()
 end
 
 function Player:draw()
+    love.graphics.setColor(WHITE)
     love.graphics.rectangle('fill', self.x, self.y, self.width, self.height)
 end
 

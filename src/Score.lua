@@ -5,6 +5,7 @@ function Score:init()
 end
 
 function Score:draw()
+    love.graphics.setColor(WHITE)
     love.graphics.printf(SCORE.TEXT .. self.score, SCORE.X, SCORE.Y, SCORE.LIMIT, SCORE.POSITION)
 end
 
