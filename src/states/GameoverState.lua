@@ -7,7 +7,7 @@ function GameoverState:init()
     local options = {
         {
             text = 'start',
-            onSelect =  function () gStateMachine:change(STATE.PLAY) end,
+            onSelect =  function () gStateMachine:change(STATE.BEFORE_PLAY) end,
         },
         {
             text = 'menu',

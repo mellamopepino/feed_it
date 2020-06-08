@@ -180,12 +180,49 @@ GAMEOVER = {
     },
 }
 
+-- Before Play
+
+BEFORE_PLAY = {
+  TITLE = {
+    TEXT = 'Move to start!',
+    X = 0,
+    Y = VIRTUAL_HEIGHT / 2,
+    LIMIT = VIRTUAL_WIDTH,
+    POSITION = 'center',
+  },
+  BEFORE_PLAYER = {
+    X = function(pos)
+          return (PLAYER.INIT_X - pos * PLAYER_SIDE)
+        end,
+    Y = VIRTUAL_HEIGHT *2/3,
+  },
+  AFTER_PLAYER = {
+    X = function(pos)
+          return (PLAYER.INIT_X + pos * PLAYER_SIDE)
+        end,
+    Y = VIRTUAL_HEIGHT *2/3,
+  }
+}
+
+-- Images
+
+IMAGES = {
+  KEY = function(key) return ('images/key_' ..key.. '.png') end,
+  SELECT_KEY = {
+    PNG = 'images/select_key/select_key.png',
+    JSON = 'images/select_key/select_key.json',
+    DEFAULT_TAG = 'Flash',
+  }
+}
+
 -- States
 
 STATE = {
     TITLE = 'title',
     PLAY = 'play',
     GAMEOVER = 'gameover',
+    INSTRUCTIONS = 'instructions',
+    BEFORE_PLAY = 'before play',
 }
 
 -- Menu

@@ -8,11 +8,13 @@
 
 push = require 'lib/push'
 Class = require 'lib/class'
+peachy = require 'lib/peachy'
 
 require 'src/StateMachine'
 require 'src/states/PlayState'
 require 'src/states/TitleState'
 require 'src/states/GameoverState'
+require 'src/states/BeforePlayState'
 
 require 'src/constants'
 
@@ -34,6 +36,7 @@ function love.load()
       [STATE.TITLE] = function() return TitleState() end,
       [STATE.PLAY] = function() return PlayState() end,
       [STATE.GAMEOVER] = function() return GameoverState() end,
+      [STATE.BEFORE_PLAY] = function() return BeforePlayState() end,
     }
     gStateMachine:change(STATE.TITLE)
 
